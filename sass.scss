@@ -1,0 +1,82 @@
+/*
+  - - - - - - - - - - - - - - - - - - - - - - -
+              /$$$$$$
+           /$$__  $$
+  /$$$$$$ | $$  \__/
+ /$$__  $$| $$$$$$$
+| $$  \ $$| $$__  $$
+| $$  | $$| $$  \ $$
+|  $$$$$$$|  $$$$$$/
+ \____  $$ \______/
+ /$$  \ $$
+|  $$$$$$/
+ \______/      by  M I C H A E L  G I N G R A S
+
+  - - - - - - - - - - - - - - - - - - - - - - -
+  a low key generic css grid idk fam
+  - - - - - - - - - - - - - - - - - - - - - - -
+
+  mgingras.co
+  7.18.16
+
+  - - - - - - - - - - - - - - - - - - - - - - -
+*/
+
+$cols: 6; // highest denomination of cols.
+$count: 1; //default
+$sm: 1; // small margin - default 1.
+$reg: 2; // reg margin - default 2.
+$xl: 4; // xl margin - default 4.
+$top: 1;
+
+
+@function width($num, $den) {
+  @return ($num / $den)*100%;
+}
+
+@function contains($list, $item) { @return index($list, $item) != null; }
+
+
+@for $i from 1 through $cols {
+  .grid--container-sm .g#{$i} {
+    width: ( ( 100 - ($i * $sm * 2)) / $i ) * 1%;
+    margin: $top*1% $sm*1%;
+  }
+
+  .grid--container .g#{$i} {
+    width: ( ( 100 - ($i * $reg * 2)) / $i ) * 1%;
+    margin: $top*1% $reg*1%;
+  }
+
+  .grid--container-xl .g#{$i} {
+    width: ( ( 100 - ($i * $xl * 2)) / $i ) * 1%;
+    margin: $top*1% $xl*1%;
+  }
+}
+.g6,
+.g4,
+.g2{
+background-color: blue;
+clear: left;
+display: block;
+float:left;
+clear: none;
+}
+
+.grid--container-sm,
+.grid--container-xl{
+  clear: left;
+  width: auto;
+  // max-width: @breakpoint-fluid-upper;
+  margin: 0 auto;
+  padding: 0;
+  }
+
+
+*{
+  text-align: center;
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0;
+  padding: 0;
+}
